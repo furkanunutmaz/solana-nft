@@ -2,18 +2,16 @@ import { Box, Center, Spacer, Stack } from "@chakra-ui/react"
 import type { NextPage } from "next"
 import Head from "next/head"
 import styles from "../styles/Home.module.css"
-
-// Existing imports
 import NavBar from "../components/NavBar"
 import Disconnected from '../components/Disconnected'
+import { connected } from "process"
 import { useWallet } from "@solana/wallet-adapter-react"
-import Connected from '../components/Connected'
-
+import Connected from "../components/Connected"
 
 const Home: NextPage = () => {
 
   return (
-    <div className={styles.container}>
+    <div className= {styles.container}>
       <Head>
         <title>Buildoors</title>
         <meta name="The NFT Collection for Buildoors" />
@@ -24,18 +22,14 @@ const Home: NextPage = () => {
         w="full"
         h="calc(100vh)"
         bgImage={"url(/home-background.svg)"}
-        //bgImage={connected ? "" : "url(/home-background.svg)"}
         backgroundPosition="center"
       >
         <Stack w="full" h="calc(100vh)" justify="center">
 					{ /* NavBar */ }
           <NavBar />
+
           <Spacer />
-          <Center>
-						{ /* If connected, the second view, otherwise the first */ }
-            { /* !connected && <Disconnected /> */}
-            <Disconnected />
-          </Center>
+          <Center>{connected ? <Connected /> : <Disconnected />}</Center>
           <Spacer />
 
           <Center>
@@ -45,7 +39,7 @@ const Home: NextPage = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                built with @_buildspace
+                built with @_yusufcihan
               </a>
             </Box>
           </Center>

@@ -1,5 +1,4 @@
 import { FC, MouseEventHandler, useCallback } from "react"
-import { useMemo } from 'react';
 import {
   Button,
   Container,
@@ -9,7 +8,6 @@ import {
   VStack,
 } from "@chakra-ui/react"
 import { ArrowForwardIcon } from "@chakra-ui/icons"
-
 import { useWalletModal } from "@solana/wallet-adapter-react-ui"
 import { useWallet } from "@solana/wallet-adapter-react"
 
@@ -32,7 +30,6 @@ const Disconnected: FC = () => {
     },
     [wallet, connect, modalState]
   )
-
   return (
     <Container>
       <VStack spacing={20}>
@@ -40,10 +37,11 @@ const Disconnected: FC = () => {
           color="white"
           as="h1"
           size="3xl"
-          noOfLines={2}
+          noOfLines={4}
           textAlign="center"
         >
-          Mint your buildoor. Earn $BLD. Level up.
+          Mint your buildoor.
+          Earn $BLD.
         </Heading>
         <Button
           bgColor="accent"
